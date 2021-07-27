@@ -6,20 +6,21 @@ require('dotenv').config();
 require('./models/userModel');
 require('./services/passport');
 
-mongoose.connect(
-  process.env.MONGO_URI.replace(
-    '<password>',
-    process.env.MONGO_PASSWORD
-  ).replace('<username>', process.env.MONGO_USERNAME),
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  },
-  () => {
+mongoose
+  .connect(
+    process.env.MONGO_URI.replace(
+      '<password>',
+      process.env.MONGO_PASSWORD
+    ).replace('<username>', process.env.MONGO_USERNAME),
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    }
+  )
+  .then(() => {
     console.log('DB connection successful');
-  }
-);
+  });
 
 const app = express();
 
