@@ -8,10 +8,7 @@ require('./services/passport');
 
 mongoose
   .connect(
-    process.env.MONGO_URI.replace(
-      '<password>',
-      process.env.MONGO_PASSWORD
-    ).replace('<username>', process.env.MONGO_USERNAME),
+    process.env.MONGO_URI.replace('<password>', process.env.MONGO_PASSWORD),
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
