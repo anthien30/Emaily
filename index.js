@@ -35,6 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Make sure express will serve up production assets
